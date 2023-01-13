@@ -17,7 +17,9 @@ code {
   --calc-main: #ff5349;
   --calc-sub: #bf5349;
   --button-back: #c9d2e3;
-  --background: #e3dac9;
+  --background1: #000000;
+  --background2: #10123d;
+  --background3: #e3dac9;
   --button-num: #808080;
   --button-op: #5a5a5a;
   --button-red: rgb(200, 57, 57);
@@ -32,7 +34,7 @@ body {
 .background {
   display: flex;
   position: absolute;
-  background: var(--background);
+  background: linear-gradient(0deg, var(--background1) 12%, var(--background2) 29%, var(--background3) 100%); 
   width: 100vw;
   height: 100vh;
   justify-content: center;
