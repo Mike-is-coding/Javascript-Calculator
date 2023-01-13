@@ -144,6 +144,7 @@ button:hover {
   position: absolute;
   display: block;
   bottom: 0;
+  color: var(--white);
   background: var(--background);
   width: 200px;
   text-align: center;
@@ -151,7 +152,7 @@ button:hover {
 
 .Link {
   text-decoration: none;
-  color: var(--button-blue);
+  color: rgb(120, 120, 200);
 }
 
 .Link:visited {
