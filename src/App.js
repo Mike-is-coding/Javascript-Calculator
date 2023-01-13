@@ -1,6 +1,7 @@
 import React from 'react';
 import { create, all } from 'mathjs';
 import './App.css';
+import Buttons from "./Buttons";
 
 class App extends React.Component {
   constructor(props) {
@@ -17,11 +18,12 @@ class App extends React.Component {
   }
 
   calculateOperations = () => {
+    const math = create(all, {})
     let result = this.state.result.join("");
     if (result) {
       console.log(result);
       console.log(this.state.result);
-      result = math.eval(result);
+      result = math.evaluate(result);
       result = math.format(result, { precision: 14 });
       result = String(result);
       console.log(result);
@@ -35,7 +37,7 @@ class App extends React.Component {
 
   //On Button Click Handler
   handleClick(e) {
-    let regex = /[/\+\-\=\*\.]/g;
+    let regex = /[/+\-=*.]/g;
     const value = e.target.innerText;
     // console.log(value, "first");
 
