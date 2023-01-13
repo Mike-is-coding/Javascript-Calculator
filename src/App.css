@@ -1,38 +1,147 @@
-.App {
+:root {
+  --white: #f6f4f1;
+  --calc-main: #ff5349;
+  --calc-sub: #bf5349;
+  --button-back: #c9d2e3;
+  --background1: #000000;
+  --background2: #10123d;
+  --background3: #e3dac9;
+  --button-num: #808080;
+  --button-op: #5a5a5a;
+  --button-red: rgb(200, 57, 57);
+  --button-blue: rgb(57, 57, 170);
+}
+
+body {
+  margin: 0px;
+  font-family: digital;
+}
+
+.background {
+  display: flex;
+  position: absolute;
+  background: linear-gradient(0deg, var(--background1) 12%, var(--background2) 29%, var(--background3) 100%); 
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  width: 500px;
+}
+
+.calc-base {
+  display: flex;
+  flex-direction: column;
+  background: black;
+  width: 350px;
+  height: fit-content;
+  padding: 5px;
+  row-gap: 5px;
+}
+
+.formulaScreen {
+  text-align: right;
+  color: var(--calc-sub);
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.display {
+  /*   background: white; */
+  width: 100%;
+  height: 40px;
+  word-wrap: break-word;
+  color: var(--calc-main);
+  text-align: right;
+  font-size: 2rem;
+  font-family: digital-7;
+}
+
+.button-pad {
+  position: relative;
+  background: var(--button-back);
+  display: flex;
+  width: 100%;
+  height: 440px;
+}
+
+button {
+  width: 87.5px;
+  height: 88px;
+  border-radius: 0;
+  border: 1px solid black;
+  font-size: 1.4rem;
+  color: var(--white);
+  font-family: share-tech-mono, monospace;
+}
+
+button:hover {
+  border: var(--white) 1px solid;
+  color: black;
+}
+
+#one,
+#two,
+#three,
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine,
+#zero,
+#decimal {
+  background: var(--button-num);
+}
+
+#divide,
+#multiply,
+#add,
+#subtract {
+  background: var(--button-op);
+}
+
+#clear {
+  background: var(--button-red);
+  width: 175px;
+}
+
+#zero {
+  width: 175px;
+}
+
+#equals {
+  position: absolute;
+  background: var(--button-blue);
+  right: 0;
+  bottom: 0;
+  height: 176px;
+}
+
+#tag {
+  font-size: 1.2rem;
+  position: absolute;
+  display: block;
+  bottom: 0;
+  color: var(--white);
+  background: var(--background);
+  width: 200px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Link {
+  text-decoration: none;
+  color: rgb(120, 120, 200);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Link:visited {
+  color: var(--button-blue);
+  text-decoration: none;
 }
