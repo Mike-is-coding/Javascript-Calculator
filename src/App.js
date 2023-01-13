@@ -1,6 +1,6 @@
-import React from 'react';
-import { create, all } from 'mathjs';
-import './App.css';
+import React from "react";
+import { create, all } from "mathjs";
+import "./App.css";
 import Buttons from "./Buttons";
 
 class App extends React.Component {
@@ -11,26 +11,26 @@ class App extends React.Component {
       formulaResult: "",
       result: [],
       number: [],
-      operator: []
+      operator: [],
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleClear = this.handleClear.bind(this);
   }
 
   calculateOperations = () => {
-    const math = create(all, {})
+    const math = create(all, {});
     let result = this.state.result.join("");
     if (result) {
-      console.log(result);
-      console.log(this.state.result);
+      // console.log(result);
+      // console.log(this.state.result);
       result = math.evaluate(result);
       result = math.format(result, { precision: 14 });
       result = String(result);
-      console.log(result);
+      // console.log(result);
       this.setState((prevState) => ({
         result: [result],
         formulaResult: prevState.formulaResult + "=" + result,
-        display: result
+        display: result,
       }));
     }
   };
@@ -42,70 +42,76 @@ class App extends React.Component {
     // console.log(value, "first");
 
     switch (value) {
+      
       case "=":
         this.calculateOperations();
         break;
+
       case "-":
         if (this.state.result.length === 0) {
           this.state.result.push(value);
-          console.log(this.state.result);
+          // console.log(this.state.result);
         } else if (this.state.operator.length <= 2) {
           this.setState(
             (prevState) => ({
               operator: this.state.operator.concat(value),
-              number: []
+              number: [],
             }),
             () => {
               let arr = this.state.operator;
               this.setState((prevState) => ({
-                display: prevState.display + arr
+                display: prevState.display + arr,
               }));
             }
           );
         }
         this.setState({
           display: this.state.result.join(""),
-          formulaResult: this.state.result.join("")
+          formulaResult: this.state.result.join(""),
         });
         break;
+
       case "/":
         let display = this.state.display;
         this.setState((prevState) => ({
           number: [],
           operator: value,
-          display: display + value
+          display: display + value,
         }));
-        console.log(this.state.operator);
+        // console.log(this.state.operator);
         break;
+
       case "*":
         this.setState((prevState) => ({
           number: [],
           operator: value,
-          display: prevState.display + value
+          display: prevState.display + value,
         }));
-        console.log(this.state.operator);
+        // console.log(this.state.operator);
         break;
+
       case "+":
         this.setState((prevState) => ({
           number: [],
           operator: value,
-          display: prevState.display + value
+          display: prevState.display + value,
         }));
-        console.log(this.state.operator);
+        // console.log(this.state.operator);
         break;
+
       default:
         //Handle Number Separation and Negatives
         if (!regex.test(value) || value === ".") {
           this.state.result.push(this.state.operator);
           this.setState((prevState) => ({
-            operator: []
+            operator: [],
           }));
           if (value === "." && this.state.number.join("").indexOf(".") < 0) {
             this.state.number.push(value);
             this.state.result.push(value);
             this.setState({
               display: this.state.result.join(""),
-              formulaResult: this.state.result.join("")
+              formulaResult: this.state.result.join(""),
             });
           } else if (value !== ".") {
             if (value !== "0") {
@@ -113,14 +119,14 @@ class App extends React.Component {
               this.state.result.push(value);
               this.setState({
                 display: this.state.result.join(""),
-                formulaResult: this.state.result.join("")
+                formulaResult: this.state.result.join(""),
               });
             } else if (value === "0" && this.state.number.length !== 0) {
               this.state.number.push(value);
               this.state.result.push(value);
               this.setState({
                 display: this.state.result.join(""),
-                formulaResult: this.state.result.join("")
+                formulaResult: this.state.result.join(""),
               });
             } else {
               this.setState({ display: "0" });
@@ -130,7 +136,7 @@ class App extends React.Component {
           // console.log(this.state.result);
         }
 
-        console.log(this.state.result);
+        // console.log(this.state.result);
         break;
     }
   }
@@ -142,7 +148,7 @@ class App extends React.Component {
       formulaResult: "",
       result: [],
       number: [],
-      operator: []
+      operator: [],
     }));
   }
 
@@ -169,7 +175,8 @@ class App extends React.Component {
               <a
                 className="Link"
                 href="https://www.freecodecamp.org/Mike_is_coding"
-                target="_blank" rel="noreferrer"
+                target="_blank"
+                rel="noreferrer"
               >
                 Miguel Fierro
               </a>
