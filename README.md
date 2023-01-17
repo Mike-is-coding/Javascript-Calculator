@@ -6,4 +6,4 @@
 
 This is a simple Javascript calculator that uses React.js.
 
-For the live version click here.
+For the live version click [here](https://mike-is-coding.github.io/Javascript-Calculator/).
