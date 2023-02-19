@@ -174,7 +174,7 @@ class App extends React.Component {
               Designed and Coded by{" "}
               <a
                 className="Link"
-                href="https://www.freecodecamp.org/Mike_is_coding"
+                href="https://www.miguelfierro.dev/"
                 target="_blank"
                 rel="noreferrer"
               >
