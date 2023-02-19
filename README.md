@@ -51,4 +51,4 @@ For future projects I would very much like to continue working with React and fu
 
 ## Author
 
-- Website - [Miguel Fierro](https://www.miguelfierro.dev/)
+For the live version click here.
